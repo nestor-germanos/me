@@ -1,4 +1,4 @@
-/* ========== LaTeX-flavored dark theme ========== */
+/* ========== LaTeX-flavored dark theme (safe) ========== */
 
 :root{
   /* Colors */
@@ -8,7 +8,7 @@
   --muted: #a9a9a9;       /* secondary text */
   --border: #242834;      /* strokes */
   --accent: #8fb3ff;      /* restrained academic blue */
-  --accent-visited: #b59dff;
+  --accent-visited: #b59dff; /* lilac/purple */
 
   /* Rhythm & layout */
   --maxw: 820px;          /* LaTeX-ish measure (~66–72ch) */
@@ -24,7 +24,7 @@
   --fs-4: 30px;   /* h1 */
 }
 
-/* Prefer dark regardless, but still respect users who force light */
+/* Light-mode fallback if user forces light */
 @media (prefers-color-scheme: light){
   :root{
     --bg: #fafaf8;
@@ -43,8 +43,7 @@ html,body{ margin:0; padding:0; }
 body.latex{
   background: var(--bg);
   color: var(--fg);
-  /* LaTeX-like serif stack.
-     If you later add webfonts, prefer 'Latin Modern Roman' or 'Libertinus Serif'. */
+  /* LaTeX-like serif stack */
   font-family:
     "Latin Modern Roman", "Libertinus Serif", "CMU Serif",
     "STIX Two Text", Georgia, Cambria, "Times New Roman", Times, serif;
@@ -52,7 +51,7 @@ body.latex{
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  hanging-punctuation: first;         /* pull opening quotes slightly */
+  hanging-punctuation: first;         /* harmless if unsupported */
 }
 
 /* Microtypography vibes */
@@ -75,8 +74,9 @@ body.latex{
   display:flex; align-items:center; justify-content:space-between;
   padding: .6rem var(--pad);
   border-bottom: 1px solid var(--border);
+  /* Safe, simple background instead of color-mix */
+  background: rgba(11, 12, 15, 0.86);
   backdrop-filter: blur(8px);
-  background: color-mix(in oklab, var(--bg) 86%, transparent);
 }
 
 .brand{
@@ -110,7 +110,7 @@ body.latex{
   .nav-toggle{ display:block; }
   .site-nav{
     display:none; position:absolute; right:var(--pad); top:3.1rem;
-    flex-direction:column; background:var(--bg-soft);
+    flex-direction:column; background: var(--bg-soft);
     padding:.5rem; border:1px solid var(--border); border-radius:.5rem;
   }
   .site-nav.open{ display:flex; }
@@ -148,6 +148,9 @@ li + li{ margin-top: .25rem; }
   border:1px solid var(--border);
 }
 
+/* CTA row in hero */
+.cta{ display:flex; gap:.6rem; flex-wrap: wrap; }
+
 /* --- Cards as “theorem boxes” vibe --- */
 .cards{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: var(--gap); margin-top: .8rem; }
 .card{
@@ -174,9 +177,10 @@ li + li{ margin-top: .25rem; }
   color: var(--accent);
   border:1px solid var(--accent);
 }
-/* Text-only purple for ghost buttons */
+/* Text-only purple for ghost buttons (e.g., "About me") */
 .btn-ghost.text-purple{
   color: var(--accent-visited);          /* #b59dff */
+  border-color: var(--accent);           /* keep blue border; text purple */
 }
 .btn-ghost.text-purple:visited{
   color: var(--accent-visited);
@@ -206,8 +210,8 @@ pre{
 
 /* --- Definition / theorem-ish callouts --- */
 .callout{
-  background: linear-gradient(0deg, rgba(143,179,255,.06), rgba(143,179,255,.06));
-  border: 1px solid color-mix(in oklab, var(--accent) 20%, var(--border));
+  background: rgba(143,179,255,.06); /* simple, safe background */
+  border: 1px solid #2a3858;         /* soft blue border */
   border-left-width: 3px;
   border-radius: .6rem;
   padding: .8rem 1rem;
@@ -227,7 +231,6 @@ pre{
   border-bottom:1px dashed var(--border); padding:.55rem 0;
 }
 
-/* --- Footer --- */
 /* --- Footer: stacked, no overlap, evenly spaced links --- */
 .site-footer{
   border-top:1px solid var(--border);
