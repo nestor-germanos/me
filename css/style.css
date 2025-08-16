@@ -221,11 +221,33 @@ pre{
 }
 
 /* --- Footer --- */
+/* --- Footer: stacked, no overlap, evenly spaced links --- */
 .site-footer{
   border-top:1px solid var(--border);
-  margin-top: 3rem; padding: 1.4rem var(--pad);
-  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.5rem;
+  margin-top: 3rem;
+  padding: 1.4rem var(--pad);
+  display: flex;
+  flex-direction: column;      /* stack rows */
+  gap: .75rem;
+  align-items: stretch;        /* full width rows */
 }
-.social{ list-style:none; padding:0; display:flex; gap:.75rem; margin:0; }
+
+.site-footer p{
+  margin: 0;                   /* keep the © line tidy */
+  text-align: left;
+}
+
+.social{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;  /* evenly spread across the full width */
+  gap: .5rem;
+  width: 100%;
+}
+
 .social a{ color: var(--muted); }
 .social a:hover{ color: var(--fg); }
+
