@@ -22,8 +22,8 @@
     .hero{display:grid;grid-template-columns:120px 1fr;gap:1rem;align-items:center}
     .avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;background:var(--bg-soft);border:1px solid var(--border)}
     h1{margin:0 0 .25rem 0;font-size:30px;line-height:1.2}
-    p.lead{margin:.25rem 0 1rem 0;color:var(--muted)}
-    .downloads{margin:1.25rem 0 0 0;padding:0;list-style:none;display:grid;gap:.75rem}
+    p.lead{margin:.25rem 0 0 0;color:var(--muted)}
+    .downloads{margin:1.5rem 0 0 0;padding:0;list-style:none;display:grid;gap:.75rem}
     .downloads li{background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--radius);padding:.9rem 1rem}
     .downloads a.file{font-weight:600}
     .downloads small{display:block;color:var(--muted);margin-top:.25rem}
@@ -32,12 +32,6 @@
     .links a{color:var(--muted)}
     .links a:hover{color:var(--fg)}
     .copyright{margin:.5rem 0 0 0;text-align:center;color:var(--muted);font-size:.95rem}
-    .btnrow{margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap}
-    .btn{display:inline-block;padding:.55rem .85rem;border-radius:.5rem;background:#e7e7e7;color:#0b0c0f;font-weight:600;border:1px solid #cfcfcf}
-    .btn:hover{text-decoration:none;filter:brightness(.96)}
-    .btn-ghost{display:inline-block;padding:.55rem .85rem;border-radius:.5rem;background:transparent;color:var(--accent);border:1px solid var(--accent)}
-    .btn-ghost.text-purple{color:var(--accent-visited);border-color:var(--accent-visited)}
-    .btn-ghost.text-purple:visited{color:var(--accent-visited)}
     @media (max-width:640px){.hero{grid-template-columns:80px 1fr}.avatar{width:80px;height:80px}}
   </style>
 
@@ -55,14 +49,9 @@
     <img class="avatar" src="assets/me1.jpg" alt="Portrait of Konstantinos Nestor Germanos" />
     <div>
       <h1>Konstantinos Nestor Germanos</h1>
-      <p class="lead">Graduate Student at the Munich Center for Mathematical Philosophy. <br> 
+      <p class="lead">Graduate Student at the Munich Center for Mathematical Philosophy.<br>
         Interested in the intersection of Psychology, Politics, and Mathematics.</p>
-
-      <!-- Optional: two quick buttons -->
-      <div class="btnrow">
-        <a class="btn" href="mailto:nestor.germanos@outlook.com">Email me</a>
-        <a class="btn-ghost text-purple" href="https://www.linkedin.com/in/konstantinos-nestor-germanos/" rel="external">LinkedIn</a>
-      </div>
+      <!-- (Buttons removed so text sits on the same horizontal as the photo) -->
     </div>
   </section>
 
@@ -98,8 +87,22 @@
   </section>
 </main>
 
-<!-- Bottom bar with links only (no full email address text) -->
+<!-- Bottom bar with links -->
 <footer class="site-footer">
   <ul class="links">
     <li><a href="https://osf.io/" rel="external">OSF</a></li>
-    <li><a href="https://github.com/nestor-g
+    <li><a href="https://github.com/nestor-germanos" rel="me">GitHub</a></li>
+    <li><a href="https://scholar.google.com/scholar?q=Konstantinos+Nestor+Germanos" rel="external">Google Scholar</a></li>
+    <li><a href="https://www.linkedin.com/in/konstantinos-nestor-germanos/" rel="external">LinkedIn</a></li>
+    <li><a href="mailto:nestor.germanos@outlook.com">Email</a></li>
+  </ul>
+  <p class="copyright">© <span id="y"></span> Nestor Germanos</p>
+</footer>
+
+<script>
+  // Footer year
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
