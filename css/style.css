@@ -8,7 +8,7 @@
   --muted: #a9a9a9;       /* secondary text */
   --border: #242834;      /* strokes */
   --accent: #8fb3ff;      /* restrained academic blue */
-  --accent-visited: #b59dff; /* lilac/purple */
+  --accent-visited: #b59dff;
 
   /* Rhythm & layout */
   --maxw: 820px;          /* LaTeX-ish measure (~66–72ch) */
@@ -43,7 +43,8 @@ html,body{ margin:0; padding:0; }
 body.latex{
   background: var(--bg);
   color: var(--fg);
-  /* LaTeX-like serif stack. If you add webfonts, prefer 'Latin Modern Roman' or 'Libertinus Serif'. */
+  /* LaTeX-like serif stack.
+     If you later add webfonts, prefer 'Latin Modern Roman' or 'Libertinus Serif'. */
   font-family:
     "Latin Modern Roman", "Libertinus Serif", "CMU Serif",
     "STIX Two Text", Georgia, Cambria, "Times New Roman", Times, serif;
@@ -51,7 +52,7 @@ body.latex{
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  hanging-punctuation: first;
+  hanging-punctuation: first;         /* pull opening quotes slightly */
 }
 
 /* Microtypography vibes */
@@ -109,5 +110,150 @@ body.latex{
   .nav-toggle{ display:block; }
   .site-nav{
     display:none; position:absolute; right:var(--pad); top:3.1rem;
-    flex-direction:column; background: var(--bg-soft);
+    flex-direction:column; background:var(--bg-soft);
     padding:.5rem; border:1px solid var(--border); border-radius:.5rem;
+  }
+  .site-nav.open{ display:flex; }
+}
+
+/* --- Headings: restrained, TeX-ish spacing --- */
+h1,h2,h3{
+  line-height: 1.25;
+  margin: 1.6rem 0 .6rem 0;
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+h1{ font-size: var(--fs-4); }
+h2{ font-size: var(--fs-3); }
+h3{ font-size: var(--fs-2); }
+
+/* --- Links --- */
+a{ color: var(--accent); text-decoration: none; }
+a:hover{ text-decoration: underline; text-underline-offset: 2px; }
+a:visited{ color: var(--accent-visited); }
+
+/* --- Paragraphs & lists --- */
+p{ margin: .6rem 0 1rem; }
+ul,ol{ padding-left: 1.2rem; }
+li + li{ margin-top: .25rem; }
+
+/* --- Hero (kept minimal) --- */
+.hero{
+  display:grid; grid-template-columns: 120px 1fr;
+  gap: 1rem; align-items:center; margin-top: .5rem;
+}
+.hero .avatar{
+  width:120px; height:120px; border-radius: 50%;
+  object-fit: cover; background: var(--bg-soft);
+  border:1px solid var(--border);
+}
+
+/* --- Cards as “theorem boxes” vibe --- */
+.cards{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: var(--gap); margin-top: .8rem; }
+.card{
+  background: var(--bg-soft);
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .9rem 1rem;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+}
+
+/* --- Buttons (subtle) --- */
+.btn{
+  display:inline-block; padding:.55rem .85rem; border-radius:.5rem;
+  background: #e7e7e7;           /* light button */
+  color:#0b0c0f;                  /* dark text */
+  font-weight:600;
+  border:1px solid #cfcfcf;
+}
+.btn:hover{ text-decoration:none; filter: brightness(0.96); }
+.btn:visited{ color:#0b0c0f; }
+
+.btn-ghost{
+  background: transparent;
+  color: var(--accent);
+  border:1px solid var(--accent);
+}
+/* Text-only purple for ghost buttons */
+.btn-ghost.text-purple{
+  color: var(--accent-visited);          /* #b59dff */
+}
+.btn-ghost.text-purple:visited{
+  color: var(--accent-visited);
+}
+
+/* --- Prose helpers --- */
+.prose p{ max-width: 68ch; }
+.prose h1, .prose h2, .prose h3{ margin-top: 1.8rem; }
+.prose em{ font-variation-settings: "ital" 1; }
+.prose hr{
+  border:0; height:1px; background: var(--border);
+  margin: 1.6rem 0;
+}
+
+/* --- Code blocks (just in case) --- */
+code, pre{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: var(--fs-0);
+}
+pre{
+  background: #0f1219;
+  border:1px solid var(--border);
+  border-radius: .6rem;
+  padding: .9rem;
+  overflow:auto;
+}
+
+/* --- Definition / theorem-ish callouts --- */
+.callout{
+  background: linear-gradient(0deg, rgba(143,179,255,.06), rgba(143,179,255,.06));
+  border: 1px solid color-mix(in oklab, var(--accent) 20%, var(--border));
+  border-left-width: 3px;
+  border-radius: .6rem;
+  padding: .8rem 1rem;
+  margin: 1rem 0;
+}
+.callout .title{
+  font-variant-caps: small-caps; letter-spacing: .04em;
+  color: var(--accent);
+  margin-bottom: .25rem;
+}
+
+/* --- Meta & lists --- */
+.meta{ color: var(--muted); }
+.post-list{ list-style:none; padding:0; }
+.post-list li{
+  display:flex; justify-content:space-between; align-items:baseline;
+  border-bottom:1px dashed var(--border); padding:.55rem 0;
+}
+
+/* --- Footer --- */
+/* --- Footer: stacked, no overlap, evenly spaced links --- */
+.site-footer{
+  border-top:1px solid var(--border);
+  margin-top: 3rem;
+  padding: 1.4rem var(--pad);
+  display: flex;
+  flex-direction: column;      /* stack rows */
+  gap: .75rem;
+  align-items: stretch;        /* full width rows */
+}
+
+.site-footer p{
+  margin: 0;                   /* keep the © line tidy */
+  text-align: left;
+}
+
+.social{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;  /* evenly spread across the full width */
+  gap: .5rem;
+  width: 100%;
+}
+
+.social a{ color: var(--muted); }
+.social a:hover{ color: var(--fg); }
