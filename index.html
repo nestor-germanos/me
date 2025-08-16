@@ -3,78 +3,102 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nestor Germanos — Personal Website</title>
+  <title>Konstantinos Nestor Germanos — Landing</title>
 
-  <!-- Meta -->
-  <meta name="description" content="Personal website of Nestor Germanos: research, projects, and writing." />
-  <meta property="og:title" content="Nestor Germanos — Personal Website" />
-  <meta property="og:description" content="Research, projects, and writing." />
-  <meta property="og:type" content="website" />
+  <!-- Simple dark LaTeX-ish styling (inline so this one page just works) -->
+  <style>
+    :root{
+      --bg:#0b0c0f; --bg-soft:#121419; --fg:#e7e7e7; --muted:#a9a9a9; --border:#242834;
+      --accent:#8fb3ff; --accent-visited:#b59dff; --maxw:820px; --pad:1rem; --radius:10px; --gap:1rem;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{background:var(--bg);color:var(--fg);
+      font:17px/1.6 "Latin Modern Roman","Libertinus Serif","CMU Serif","STIX Two Text",Georgia,serif}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline;text-underline-offset:2px}
+    a:visited{color:var(--accent-visited)}
+    .container{max-width:var(--maxw);margin:0 auto;padding:2.2rem var(--pad)}
+    .hero{display:grid;grid-template-columns:120px 1fr;gap:1rem;align-items:center}
+    .avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;background:var(--bg-soft);border:1px solid var(--border)}
+    h1{margin:0 0 .25rem 0;font-size:30px;line-height:1.2}
+    p.lead{margin:.25rem 0 1rem 0;color:var(--muted)}
+    .downloads{margin:1.25rem 0 0 0;padding:0;list-style:none;display:grid;gap:.75rem}
+    .downloads li{background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--radius);padding:.9rem 1rem}
+    .downloads a.file{font-weight:600}
+    .downloads small{display:block;color:var(--muted);margin-top:.25rem}
+    .site-footer{border-top:1px solid var(--border);margin-top:2rem;padding:1.1rem var(--pad)}
+    .links{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin:0;padding:0;list-style:none}
+    .links a{color:var(--muted)}
+    .links a:hover{color:var(--fg)}
+    .copyright{margin:.5rem 0 0 0;text-align:center;color:var(--muted);font-size:.95rem}
+    .btnrow{margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap}
+    .btn{display:inline-block;padding:.55rem .85rem;border-radius:.5rem;background:#e7e7e7;color:#0b0c0f;font-weight:600;border:1px solid #cfcfcf}
+    .btn:hover{text-decoration:none;filter:brightness(.96)}
+    .btn-ghost{display:inline-block;padding:.55rem .85rem;border-radius:.5rem;background:transparent;color:var(--accent);border:1px solid var(--accent)}
+    .btn-ghost.text-purple{color:var(--accent-visited);border-color:var(--accent-visited)}
+    .btn-ghost.text-purple:visited{color:var(--accent-visited)}
+    @media (max-width:640px){.hero{grid-template-columns:80px 1fr}.avatar{width:80px;height:80px}}
+  </style>
+
+  <!-- Social preview (optional) -->
+  <meta property="og:title" content="Konstantinos Nestor Germanos" />
+  <meta property="og:description" content="Graduate Student at the MCMP. Downloads: CV, Cogito essay & poster, Bachelor's thesis, quantum cognition commentary." />
   <meta property="og:image" content="https://nestor-germanos.github.io/nestorgermanos.github.io/assets/me1.jpg" />
-
-  <link rel="icon" href="assets/favicon.png" />
-
-  <link rel="preload" href="css/style.css" as="style" />
-  <link rel="stylesheet" href="css/style.css" />
-  <script defer src="js/main.js"></script>
 </head>
-<body class="latex">
-<header class="site-header">
-  <a class="brand" href="./">NG</a>
-  <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">☰</button>
-  <nav id="site-nav" class="site-nav" aria-label="Primary">
-    <a href="./" aria-current="page">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="blog.html">Blog</a>
-  </nav>
-</header>
+<body>
 
 <main class="container">
+  <!-- Hero -->
   <section class="hero">
+    <!-- Ensure this file exists exactly as: assets/me1.jpg -->
     <img class="avatar" src="assets/me1.jpg" alt="Portrait of Konstantinos Nestor Germanos" />
     <div>
       <h1>Konstantinos Nestor Germanos</h1>
-      <p>Graduate Student at the Munich Center for Mathematical Philosophy. Interested in the intersection between Psychology, Politics and Mathematics.</p>
-      <p class="cta">
-        <a class="btn" href="projects.html">See projects</a>
-        <a class="btn btn-ghost text-purple" href="about.html">About me</a>
-      </p>
+      <p class="lead">Graduate Student at the Munich Center for Mathematical Philosophy. Interested in the intersection of Psychology, Politics, and Mathematics.</p>
+
+      <!-- Optional: two quick buttons -->
+      <div class="btnrow">
+        <a class="btn" href="mailto:nestor.germanos@outlook.com">Email me</a>
+        <a class="btn-ghost text-purple" href="https://www.linkedin.com/in/konstantinos-nestor-germanos/" rel="external">LinkedIn</a>
+      </div>
     </div>
   </section>
 
-  <section aria-labelledby="recent-work">
-    <h2 id="recent-work">Recent highlights</h2>
-    <div class="cards">
-      <article class="card">
-        <h3><a href="projects.html#thesis">Bachelor’s Thesis: Truncated Sampling & Social Choice</a></h3>
-        <p>Bridging bounded rationality with game-theoretic intuitions; experiments on sampling and judgment.</p>
-      </article>
-
-      <article class="card">
-        <h3><a href="assets/Cogito_v2_Germanos.pdf">Term Paper — MCMP Summer School</a></h3>
-        <p>Presented at the MCMP Summer School in Mathematical Philosophy; the poster summarizes the paper’s core claims.</p>
-        <p class="meta"><a href="assets/Poster_Nestor_Germanos.pdf">Poster (PDF)</a></p>
-      </article>
-
-      <article class="card">
-        <h3><a href="posts/first-post.html">Note: Primus inter pares (organizational tone)</a></h3>
-        <p>Short reflection on collegial leadership and wording.</p>
-      </article>
-    </div>
+  <!-- Downloads -->
+  <section aria-labelledby="dl">
+    <h2 id="dl">Downloads</h2>
+    <ul class="downloads">
+      <li>
+        <a class="file" href="assets/CV_Nestor_Germanos.pdf">CV — Nestor Germanos</a>
+        <small>Short academic CV (PDF). <!-- Upload as: assets/CV_Nestor_Germanos.pdf --></small>
+      </li>
+      <li>
+        <a class="file" href="assets/Cogito_v2_Germanos.pdf">Cogito Essay (MCMP Summer School)</a>
+        <small>Term paper presented at the MCMP Summer School in Mathematical Philosophy. <!-- File already present --></small>
+      </li>
+      <li>
+        <a class="file" href="assets/Poster_Nestor_Germanos.pdf">Poster — Cogito Essay (MCMP)</a>
+        <small>Poster summarizing the paper’s core claims. <!-- File already present; name without spaces --></small>
+      </li>
+      <li>
+        <a class="file" href="assets/thesis.pdf">Bachelor’s Thesis</a>
+        <small>Final thesis document (PDF). <!-- Upload as: assets/thesis.pdf --></small>
+      </li>
+      <li>
+        <a class="file" href="assets/poster_quantum.pdf">Quantum Cognition — Poster</a>
+        <small>Poster for the commentary expansion relating the thesis to quantum cognition. <!-- Upload as: assets/poster_quantum.pdf --></small>
+      </li>
+      <li>
+        <a class="file" href="assets/slides_quantum.pdf">Quantum Cognition — Slides/Commentary</a>
+        <small>Extended commentary slides / write-up on the quantum model. <!-- Upload as: assets/slides_quantum.pdf --></small>
+      </li>
+    </ul>
   </section>
 </main>
 
+<!-- Bottom bar with links only (no full email address text) -->
 <footer class="site-footer">
-  <p>© <span id="y"></span> Nestor Germanos</p>
-  <ul class="social">
-    <li><a href="mailto:nestor.germanos@outlook.com">nestor.germanos@outlook.com</a></li>
-    <li><a href="https://github.com/nestor-germanos" rel="me">GitHub</a></li>
-    <li><a href="https://scholar.google.com/scholar?q=Konstantinos+Nestor+Germanos" rel="external">Google Scholar</a></li>
-    <li><a href="https://www.linkedin.com/in/konstantinos-nestor-germanos/" rel="external">LinkedIn</a></li>
+  <ul class="links">
     <li><a href="https://osf.io/" rel="external">OSF</a></li>
-  </ul>
-</footer>
-<script defer src="js/main.js"></script>
-</body>
-</html>
+    <li><a href="https://github.com/nestor-g
