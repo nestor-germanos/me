@@ -10,28 +10,33 @@
   <meta property="og:title" content="Nestor Germanos — Personal Website" />
   <meta property="og:description" content="Research, projects, and writing." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://nestorgermanos.github.io/assets/avatar.jpg" />
-  <link rel="icon" href="/assets/favicon.png" />
+  <!-- CHANGE ↓ -->
+  <meta property="og:image" content="assets/avatar.jpg" />
+  <!-- CHANGE ↓ -->
+  <link rel="icon" href="assets/favicon.png" />
 
-  <link rel="preload" href="/css/style.css" as="style" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <script defer src="/js/main.js"></script>
+  <!-- CHANGE ↓ -->
+  <link rel="preload" href="css/style.css" as="style" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/main.js"></script>
 </head>
 <body class="latex">
 <header class="site-header">
-  <a class="brand" href="/">NG</a>
+  <a class="brand" href="./">NG</a>
   <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">☰</button>
   <nav id="site-nav" class="site-nav" aria-label="Primary">
-    <a href="/" aria-current="page">Home</a>
-    <a href="/about.html">About</a>
-    <a href="/projects.html">Projects</a>
-    <a href="/blog.html">Blog</a>
+    <!-- CHANGE all links ↓ -->
+    <a href="./" aria-current="page">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="blog.html">Blog</a>
   </nav>
 </header>
 
 <main class="container">
   <section class="hero">
-    <img class="avatar" src="/assets/avatar.jpg" alt="Portrait of Nestor Germanos" />
+    <!-- CHANGE ↓ -->
+    <img class="avatar" src="assets/avatar.jpg" alt="Portrait of Nestor Germanos" />
     <div>
       <h1>Hi, I’m Nestor.</h1>
       <p>
@@ -39,8 +44,9 @@
         simple tools. This site collects my research, projects, and notes.
       </p>
       <p class="cta">
-        <a class="btn" href="/projects.html">See projects</a>
-        <a class="btn btn-ghost" href="/about.html">About me</a>
+        <!-- CHANGE ↓ -->
+        <a class="btn" href="projects.html">See projects</a>
+        <a class="btn btn-ghost" href="about.html">About me</a>
       </p>
     </div>
   </section>
@@ -48,16 +54,17 @@
   <section aria-labelledby="recent-work">
     <h2 id="recent-work">Recent highlights</h2>
     <div class="cards">
+      <!-- CHANGE ↓ -->
       <article class="card">
-        <h3><a href="/projects.html#thesis">Bachelor’s Thesis: Truncated Sampling & Social Choice</a></h3>
+        <h3><a href="projects.html#thesis">Bachelor’s Thesis: Truncated Sampling & Social Choice</a></h3>
         <p>Bridging bounded rationality with game-theoretic intuitions; experiments on sampling and judgment.</p>
       </article>
       <article class="card">
-        <h3><a href="/projects.html#quantum">Poster: Quantum Cognition & Voting Judgments</a></h3>
+        <h3><a href="projects.html#quantum">Poster: Quantum Cognition & Voting Judgments</a></h3>
         <p>Modeling judgment dynamics and confidence via a quantum framework.</p>
       </article>
       <article class="card">
-        <h3><a href="/posts/first-post.html">Note: Primus inter pares (organizational tone)</a></h3>
+        <h3><a href="posts/first-post.html">Note: Primus inter pares (organizational tone)</a></h3>
         <p>Short reflection on collegial leadership and wording.</p>
       </article>
     </div>
@@ -73,5 +80,5 @@
     <li><a href="https://www.linkedin.com/" rel="external">LinkedIn</a></li>
   </ul>
 </footer>
-<body class="latex">
+<!-- REMOVE the second <body class="latex"> ↓ -->
 </html>
